@@ -55,9 +55,9 @@ namespace ColorFill
             backgroundColor.B = 255;
 
             borderColor = new Color();
-            borderColor.R = 43;
-            borderColor.G = 145;
-            borderColor.B = 175;
+            borderColor.R = 0;
+            borderColor.G = 0;
+            borderColor.B = 0;
 
             redColor = new Color();
             redColor.R = 255;
@@ -105,7 +105,7 @@ namespace ColorFill
             //bmp格式要求:   
             //在将psd转化为bmp时,选择"高级模式"中的  32位  X8 R8 G8 B8 格式 并翻转行序
             //翻转行序原因: bmp保存是从图片左下角为起点开始保存数据
-            string filePath = "Image/FloodFillImg2.bmp";
+            string filePath = "Image/FloodFillImg4.bmp";
             byte[] temp = System.IO.File.ReadAllBytes(filePath);
             byte[] result = new byte[temp.Length-72];
             //手动排除文件格式title 只读取rgbx数据 //
@@ -181,20 +181,22 @@ namespace ColorFill
         //与边框相同即不可填充 返回false
         private bool canFillArea(Color current, Color old)
         {
-
-
             if (current.Equals(old))
             {
                 return false;
             }
 
-            else if (current.Equals(backgroundColor)
-                || current.Equals(redColor)
-                || current.Equals(blueColor)
-                || current.Equals(yellowColor)
-                || current.Equals(greenColor)
-                || current.A != 0
-                )
+            //else if (current.Equals(backgroundColor)
+            //    || current.Equals(redColor)
+            //    || current.Equals(blueColor)
+            //    || current.Equals(yellowColor)
+            //    || current.Equals(greenColor)
+            //    || current.A != 0
+            //    )
+            //{
+            //    return true;
+            //}
+            else if (!current.Equals(borderColor))
             {
                 return true;
             }
