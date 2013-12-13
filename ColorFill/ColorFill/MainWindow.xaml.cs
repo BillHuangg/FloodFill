@@ -31,16 +31,17 @@ namespace ColorFill
         //存储当前图片数据 数组
         private byte[] enhPixelData;
 
-        private Point currentMousePoint;
+        private Point lastMousePoint;
 
         //color
         private Color backgroundColor;
         private Color borderColor;
+        private Color highLightColor;
         private Color redColor;
         private Color blueColor;
         private Color yellowColor;
         private Color greenColor;
-        private Color currentColor;
+        private Color lastColor;
 
         public MainWindow()
         {
@@ -58,6 +59,11 @@ namespace ColorFill
             borderColor.R = 0;
             borderColor.G = 0;
             borderColor.B = 0;
+
+            highLightColor = new Color();
+            highLightColor.R = 220;
+            highLightColor.G = 220;
+            highLightColor.B = 220;
 
             redColor = new Color();
             redColor.R = 255;
@@ -80,7 +86,7 @@ namespace ColorFill
             greenColor.B = 113;
 
             //当前颜色默认为红色
-            currentColor = redColor;
+            //lastColor = redColor;
 
             //初始化图案
             initImage();
@@ -115,18 +121,18 @@ namespace ColorFill
 
 
         //执行填充
-        private void Fill()
+        private void Fill(Point point,Color color)
         {
-            FloodFill((int)currentMousePoint.X, (int)currentMousePoint.Y, currentColor);
+            FloodFill(point, color);
             RefreshImage();
         }
 
 
         //填充算法
-        private void FloodFill(int startX, int startY, Color fillColor)
+        private void FloodFill(Point point, Color color)
         {
             //种子
-            Point seedPoint = new Point(startX, startY);
+            Point seedPoint = point;
             Stack<Point> pixelStack = new Stack<Point>();
             //初始化
             pixelStack.Push(seedPoint);
@@ -145,10 +151,10 @@ namespace ColorFill
                 tempColor.R = enhPixelData[index + 2];
                 tempColor.A = enhPixelData[index + 3];
                 //若该点为可填充的点即执行
-                if (canFillArea(tempColor, fillColor))
+                if (canFillArea(tempColor, color))
                 {
                     //不同则替换
-                    SetPixelColor(index, fillColor);
+                    SetPixelColor(index, color);
 
                     //下
                     Point old = temp;
