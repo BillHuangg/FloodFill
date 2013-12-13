@@ -42,7 +42,7 @@ namespace ColorFill
         private Color yellowColor;
         private Color greenColor;
         private Color lastColor;
-
+        private Color lastClickColor;
         public MainWindow()
         {
             InitializeComponent();
@@ -59,6 +59,11 @@ namespace ColorFill
             borderColor.R = 0;
             borderColor.G = 0;
             borderColor.B = 0;
+
+            lastClickColor = new Color();
+            lastClickColor.R = 0;
+            lastClickColor.G = 0;
+            lastClickColor.B = 0;
 
             highLightColor = new Color();
             highLightColor.R = 220;
