@@ -64,11 +64,9 @@ namespace ColorFill
             if (!clickPointColor.Equals(highLightColor))
             {
                 
-
                 if (!isFirstCilck)
                 {
                     //恢复前一个点选区域的颜色
-                    
                     int newIndex = GetPixelPosition((int)lastMousePoint.X, (int)lastMousePoint.Y);
                     Color newColorOfLastPoint = new Color();
                     newColorOfLastPoint.B = enhPixelData[newIndex];

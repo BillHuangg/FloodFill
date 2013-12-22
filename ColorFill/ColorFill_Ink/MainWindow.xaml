@@ -1,0 +1,12 @@
+﻿<Window x:Class="ColorFill_Ink.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="1000" Loaded="Window_Loaded">
+    <Grid>
+        <InkCanvas Name="testCanvas" Margin="0,0,628,61">
+            
+        </InkCanvas>
+        <Canvas Name="drawCanvas"  Margin="397,0,148,61" Background="Aquamarine" />
+        <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="44,281,0,0" Name="button1" VerticalAlignment="Top" Width="75" MouseDown="button1_MouseLeftButtonUp"/>
+    </Grid>
+</Window>

@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorFill", "ColorFill\ColorFill.csproj", "{94B72290-3785-4FBE-822E-ECCB8206CDA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorFill_Ink", "ColorFill_Ink\ColorFill_Ink.csproj", "{34E204B0-CCBA-4006-B336-726A06406477}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,10 @@ Global
 		{94B72290-3785-4FBE-822E-ECCB8206CDA4}.Debug|x86.Build.0 = Debug|x86
 		{94B72290-3785-4FBE-822E-ECCB8206CDA4}.Release|x86.ActiveCfg = Release|x86
 		{94B72290-3785-4FBE-822E-ECCB8206CDA4}.Release|x86.Build.0 = Release|x86
+		{34E204B0-CCBA-4006-B336-726A06406477}.Debug|x86.ActiveCfg = Debug|x86
+		{34E204B0-CCBA-4006-B336-726A06406477}.Debug|x86.Build.0 = Debug|x86
+		{34E204B0-CCBA-4006-B336-726A06406477}.Release|x86.ActiveCfg = Release|x86
+		{34E204B0-CCBA-4006-B336-726A06406477}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
