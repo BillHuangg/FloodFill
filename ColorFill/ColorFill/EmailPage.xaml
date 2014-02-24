@@ -1,0 +1,41 @@
+﻿<Page x:Class="ColorFill.EmailPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+	Title="EmailPage" Loaded="Page_Loaded">
+
+    <Viewbox Stretch="Fill">
+
+        <Grid>
+            <Canvas Name="BackgroundLayer" Height="1080" Width="1920">
+                <Image Name="example" Source="Image/emailexample.jpg" Stretch="Fill" Width="1920" Opacity="0" />
+                <Image Name="BG"  Stretch="Fill" Width="1920" Opacity="1"/>
+                
+            </Canvas>
+            <Canvas Name="bmpLayer">
+                <Image Name="FloodFillImage" Canvas.Left="580" Canvas.Top="50" Width="800" />
+            </Canvas>
+
+            <Canvas Name="ButtonLayer" >
+                
+                <!--<Image Name="ButtonMask" Source="Image/ButtonArea.png" Stretch="Fill" Width="550"></Image>-->
+                <!--<Button Canvas.Left="937" Canvas.Top="917" Content="reset" Height="93" Name="button1" Width="260" Click="ResetButtonFunction"/>
+                <Button Canvas.Left="103" Canvas.Top="910" Content="返回" Height="110" Name="button2" Width="293" Click="BackButtonFunction"/>-->
+               
+                <TextBox Canvas.Left="627" Text="" Canvas.Top="503" Height="73" Name="textAddress" Width="667" FontSize="56" Background="Transparent"  BorderThickness="0" FontFamily="./fzsejw.ttf#方正少儿简体" Foreground="#FFFFF7AA" Focusable="True" />
+                <Image Name="SendButton" Source="Image/UIResources/FunctionButton/EmailPage/emailSendButton.png" Stretch="Fill" Width="301" Canvas.Top="820" Canvas.Left="1573"   />
+                <Image Name="CloseButton" Source="Image/UIResources/FunctionButton/closeButton.png" Stretch="Fill" Width="86" Canvas.Top="974" Canvas.Left="1814" MouseLeftButtonUp="CloseFunction" />
+                <Canvas Name="KeyboardLayer" Height="295" Width="855" Canvas.Left="530" Canvas.Top="653">
+                    <Image Name="BGKeyboard" Source="Image/Keyboard/TextLower.png" Width="855" Stretch="Fill" Canvas.Top="33" />
+                    
+                </Canvas>
+                <Canvas Name="DialogBoxLayer" Height="295" Width="855" Canvas.Left="530" Canvas.Top="337" Background="#FF12CD88"  Visibility="Hidden">
+                    <TextBlock Canvas.Left="150" Canvas.Top="57" Height="203" Name="textNote" Text="" Width="560" FontSize="30" FontFamily="./fzsejw.ttf#方正少儿简体" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Canvas>
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</Page>

@@ -1,0 +1,49 @@
+﻿<Page x:Class="ColorFill.StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920" 
+      Loaded="Page_Loaded"
+	Title="StartPage">
+
+    <Viewbox Stretch="Fill">
+        <Grid>
+            <Canvas Name="BackgroundLayer" Height="1080" Width="1920">
+                <Image Name="BG"  Stretch="Fill" Width="1920" Opacity="1"/>
+                <!--<Image Name="Example" Source="Image/UIResources/StartExample.jpg" Stretch="Fill" Width="1920" Opacity="0.0"/>-->
+            </Canvas>
+            
+            <Canvas Name="ButtonLayer" >
+                <Image Name="CloseButton" Source="Image/UIResources/FunctionButton/closeButton.png" Stretch="Fill" Width="86" Canvas.Top="974" Canvas.Left="1814" MouseLeftButtonUp="CloseFunction" />
+                <Canvas Name="FunctionButtonLayer" Height="1080" Width="1920">
+                    <!--<Button Canvas.Left="0" Canvas.Top="235" Content="Pre" Height="105" Name="pre" Width="130" Click="next_Click"/>
+                    <Button Canvas.Left="1770" Canvas.Top="258" Content="Next" Height="105" Name="next" Width="130" Click="pre_Click"/>-->
+                    <Image Name="ButtonsPres1" Source="Image/UIResources/FunctionButton/StartPage/move.png" Stretch="Fill" Width="140" Canvas.Top="220" Canvas.Left="5" />
+                    <Image Name="ButtonsNexts1" Source="Image/UIResources/FunctionButton/StartPage/move.png" Stretch="Fill" Width="140" Canvas.Top="220" Canvas.Left="1912">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1" ScaleY="1"  />
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                    <Image Name="ButtonsPres2" Source="Image/UIResources/FunctionButton/StartPage/move.png" Stretch="Fill" Width="140" Canvas.Top="750" Canvas.Left="5" />
+                    <Image Name="ButtonsNexts2" Source="Image/UIResources/FunctionButton/StartPage/move.png" Stretch="Fill" Width="140" Canvas.Top="750" Canvas.Left="1912">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleX="-1" ScaleY="1"  />
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+                </Canvas>
+                <Canvas Canvas.Left="132" Canvas.Top="112" Height="392" Name="CharacterCanvas" Width="1638" ClipToBounds="True">
+                    <!--<Image Height="380" Name="image1" Stretch="None" Width="582" Source="Image/UIResources/FunctionButton/StartPage/c0.png"/>-->
+                </Canvas>
+                <Canvas Canvas.Left="132" Canvas.Top="615" Height="405" Name="SceneryCanvas" Width="1638" ClipToBounds="True">
+                    <!--<Image Height="380" Name="image1" Stretch="None" Width="582" Source="Image/UIResources/FunctionButton/StartPage/c0.png"/>-->
+                </Canvas>
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</Page>

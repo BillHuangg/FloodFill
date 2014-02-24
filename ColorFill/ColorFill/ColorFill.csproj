@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +56,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Keyboard.cs" />
+    <Compile Include="LoadingPage.xaml.cs">
+      <DependentUpon>LoadingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EmailPage.xaml.cs">
+      <DependentUpon>EmailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PromptDialogBox.cs" />
+    <Compile Include="ResultPage.xaml.cs">
+      <DependentUpon>ResultPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScrollImageBox.cs" />
+    <Compile Include="StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VideoPage.xaml.cs">
+      <DependentUpon>VideoPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="LoadingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,11 +93,27 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ButtonEvent.cs" />
+    <Compile Include="MainPageButtonEvent.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="EmailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ResultPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VideoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -87,6 +133,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="fzsejw.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,16 +141,47 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\blankBlock.png" />
-    <Resource Include="Image\blueBlock.png" />
-    <Resource Include="Image\redBlock.png" />
-    <Resource Include="Image\yellowBlock.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color0.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color1.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color10.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color11.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color2.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color3.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color4.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color5.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color6.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color7.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color8.png" />
+    <Resource Include="Image\UIResources\ColorButton\MainPage\color9.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\greenBlock.png" />
+    <Resource Include="Image\UIResources\FunctionButton\MainPage\back.png" />
+    <Resource Include="Image\UIResources\FunctionButton\MainPage\back_Clicked.png" />
+    <Resource Include="Image\UIResources\FunctionButton\MainPage\finish.png" />
+    <Resource Include="Image\UIResources\FunctionButton\MainPage\finish_Clicked.png" />
+    <Resource Include="Image\UIResources\FunctionButton\MainPage\reset.png" />
+    <Resource Include="Image\UIResources\FunctionButton\MainPage\reset_Clicked.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\FloodFillImg.bmp" />
+    <Resource Include="Image\UIResources\FunctionButton\StartPage\move.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\UIResources\FunctionButton\ResultPage\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Image\Audio\ButtonClick.wav" />
+    <Content Include="Image\Audio\Click.wav" />
+    <Content Include="Image\Audio\Done.wav" />
+    <Resource Include="Image\Keyboard\TextLower.png" />
+    <Resource Include="Image\Keyboard\notekey.png" />
+    <Resource Include="Image\Keyboard\TextCapital.png" />
+    <Resource Include="Image\Keyboard\keyWithBG.png" />
+    <Resource Include="Image\Keyboard\keyboard.png" />
+    <Resource Include="Image\UIResources\FunctionButton\EmailPage\emailSendButton.png" />
+    <Resource Include="Image\emailexample.jpg" />
+    <Resource Include="Image\UIResources\FunctionButton\ResultPage\email.png" />
+    <Resource Include="Image\UIResources\FunctionButton\closeButton.png" />
+    <Resource Include="Image\UIResources\FunctionButton\close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

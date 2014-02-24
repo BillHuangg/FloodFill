@@ -1,0 +1,27 @@
+﻿<Page x:Class="ColorFill.VideoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+	Title="VideoPage" Loaded="Page_Loaded">
+    <Viewbox Stretch="Fill">
+        <Grid>
+            <Canvas Name="BackgroundLayer" Height="1080" Width="1920">
+                <Image Name="BG"  Stretch="Fill" Width="1920" Opacity="1"/>
+            </Canvas>
+
+            <Canvas Name="bmpLayer">
+                <Image Name="FloodFillImage" Canvas.Left="360" Canvas.Top="22"  />
+                
+            </Canvas>
+
+            <Canvas Name="ButtonLayer" >
+                <Image Name="CloseButton" Source="Image/UIResources/FunctionButton/closeButton.png" Stretch="Fill" Width="86" Canvas.Top="974" Canvas.Left="1814" MouseLeftButtonUp="CloseFunction" />
+                <MediaElement Canvas.Left="650" Canvas.Top="257" Height="460" Name="mediaElement1" Width="640" LoadedBehavior="Manual" />
+                <TextBlock Canvas.Left="1317" Canvas.Top="390" Height="203" Name="textNote" Text="" Width="560" FontSize="30" />
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</Page>
