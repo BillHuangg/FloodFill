@@ -16,7 +16,8 @@ using System.Net.Mail;
 using System.Text;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-using System.Web; 
+using System.Web;
+using System.IO;
 namespace ColorFill
 {
 
@@ -28,9 +29,11 @@ namespace ColorFill
     {
         int functionButtonWidth = 301;
         int functionButtonWidth_Clicked = 329;
-        private string condition = "wait";
+        private string condition = "";
         private bool isSent = false;
         PromptDialogBox promptDialogBox;
+
+        string[] MailAddress;
         public EmailPage()
         {
             InitializeComponent();
@@ -43,16 +46,43 @@ namespace ColorFill
             Uri uri = new Uri(@"pack://siteoforigin:,,,/Image/EmailPageBG.png", UriKind.RelativeOrAbsolute);
             BG.Source = new BitmapImage(uri);
 
+
+            MailAddress = new string[5];
+
+
+            LoadFile();
             //textAddress.Text = "请输入您的邮件地址";
             //initKeyboard();
         }
 
+        private void LoadFile()
+        {
+            string pathFile = "MainMailAddress.txt";
+            StreamReader sr = new StreamReader(pathFile);
+
+            String tempLine;
+            for (int i = 0; i < MailAddress.Count(); i++)
+            {
+                if ((tempLine = sr.ReadLine()) != null)
+                {
+                    MailAddress[i] = tempLine;
+                }
+            }
+            sr.Close();
+        }
+        private void SaveFile(string message)
+        {
+            string pathFile = "MailDebugLog.txt";
+            StreamWriter sw = new StreamWriter(pathFile, false);
+            sw.WriteLine(message);
+            sw.Close();
+        }
         private void SendEmail()
         {
             //通过邮箱发送
             MailMessage myMail = new MailMessage();
             //sender
-            myMail.From = new MailAddress("testmailttt@163.com");
+            myMail.From = new MailAddress(MailAddress[0]);//"testmailttt@163.com");//"cd@sstm.org.cn");//"testmailttt@163.com");
             //receiver
             try
             {
@@ -61,7 +91,8 @@ namespace ColorFill
             catch (FormatException e)
             {
                 isSent = false;
-                condition = "Incorrect Email" + "\n" + e.Message;
+                condition = "您的邮件发送失败 " + "\n" + "\n" + e.Message;
+                SaveFile(condition);
                 return;
             }
             
@@ -89,32 +120,35 @@ namespace ColorFill
             catch (Exception e)
             {
                 isSent = false;
-                condition = "Send Unsuccessfully" + "\n" + e.Message;
+                condition = "请重试,您的邮件发送失败";// + "\n" + e.Message;
             }
-            SmtpClient smtp = new SmtpClient("smtp.163.com");
+            SmtpClient smtp = new SmtpClient(MailAddress[1]);//"smtp.sstm.org.cn");//smtp.sstm-adex-01.sstm.org.cn");//"smtp.163.com");
             smtp.EnableSsl = true;
             // Do not send the DefaultCredentials with requests
             smtp.UseDefaultCredentials = false;
 
             //用户名,密码
-            smtp.Credentials = new NetworkCredential("testmailttt", "testmail") as ICredentialsByHost;
+            smtp.Credentials = new NetworkCredential(MailAddress[2], MailAddress[3]) as ICredentialsByHost;//("cd","654321") as ICredentialsByHost;//
 
             ServicePointManager.ServerCertificateValidationCallback =
                 delegate(object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
                 { return true; };
-            smtp.Timeout = 900000000;
+            smtp.Timeout = Int32.Parse(MailAddress[4]);
             try
             {
                 smtp.Send(myMail);//, userState); ;
-                condition = "Send Successfully";
+                condition = "您的邮件已发送成功";
                 isSent = true;
             }
             catch (SmtpException e)
             {
                 isSent = false;
-                condition = "Send Unsuccessfully"+"\n"+e.Message;
+                condition = "请重试,您的邮件发送失败 "+ e.Message+"  : "+e.InnerException;
+                SaveFile(condition);
+
             }
         }
+
         private void RefreshDisplay()
         {
             //textNote.Text = condition;
@@ -131,6 +165,15 @@ namespace ColorFill
             SendEmail();
             RefreshDisplay();
         }
+
+        private void BackButtonFunction(object sender, RoutedEventArgs e)
+        {
+            StartPage startPage = new StartPage();
+
+            ////跳转
+            this.NavigationService.Navigate(startPage, UriKind.Relative);
+        }
+
         private void initButton()
         {
 
@@ -142,6 +185,15 @@ namespace ColorFill
             SendButton.MouseLeave += new MouseEventHandler(ButtonLeave);
             SendButton.MouseLeave += new MouseEventHandler(FunctionButtonReset);
 
+
+            ///
+            BackButton.MouseLeftButtonDown += new MouseButtonEventHandler(FunctionButtonClickDown);
+
+            BackButton.MouseLeftButtonUp += new MouseButtonEventHandler(BackButtonFunction);
+
+            BackButton.MouseEnter += new MouseEventHandler(ButtonEnter);
+            BackButton.MouseLeave += new MouseEventHandler(ButtonLeave);
+            BackButton.MouseLeave += new MouseEventHandler(FunctionButtonReset);
         }
         private void ButtonEnter(object sender, MouseEventArgs e)
         {

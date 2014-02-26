@@ -215,7 +215,8 @@ namespace ColorFill
 
         private void FocusSetBlank()
         {
-            if (_pageUI.textAddress.Text == "请输入您的邮件地址")
+            if (_pageUI.textAddress.Text == "请输入您的邮件地址"
+                || _pageUI.textAddress.Text == "请重新输入您的邮件地址")
             {
                 _pageUI.textAddress.Text = "";
             }

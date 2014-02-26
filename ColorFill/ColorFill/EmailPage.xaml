@@ -26,14 +26,17 @@
                 <Button Canvas.Left="103" Canvas.Top="910" Content="返回" Height="110" Name="button2" Width="293" Click="BackButtonFunction"/>-->
                
                 <TextBox Canvas.Left="627" Text="" Canvas.Top="503" Height="73" Name="textAddress" Width="667" FontSize="56" Background="Transparent"  BorderThickness="0" FontFamily="./fzsejw.ttf#方正少儿简体" Foreground="#FFFFF7AA" Focusable="True" />
-                <Image Name="SendButton" Source="Image/UIResources/FunctionButton/EmailPage/emailSendButton.png" Stretch="Fill" Width="301" Canvas.Top="820" Canvas.Left="1573"   />
+                <Image Name="SendButton" Source="Image/UIResources/FunctionButton/EmailPage/emailSendButton.png" Stretch="Fill" Width="301" Canvas.Top="663" Canvas.Left="1573"   />
+                <Image Name="BackButton" Source="Image/UIResources/FunctionButton/EmailPage/backButton.png" Stretch="Fill" Width="301" Canvas.Top="820" Canvas.Left="1573"   />
                 <Image Name="CloseButton" Source="Image/UIResources/FunctionButton/closeButton.png" Stretch="Fill" Width="86" Canvas.Top="974" Canvas.Left="1814" MouseLeftButtonUp="CloseFunction" />
                 <Canvas Name="KeyboardLayer" Height="295" Width="855" Canvas.Left="530" Canvas.Top="653">
                     <Image Name="BGKeyboard" Source="Image/Keyboard/TextLower.png" Width="855" Stretch="Fill" Canvas.Top="33" />
                     
                 </Canvas>
-                <Canvas Name="DialogBoxLayer" Height="295" Width="855" Canvas.Left="530" Canvas.Top="337" Background="#FF12CD88"  Visibility="Hidden">
+                <Canvas Name="DialogBoxLayer" Height="295" Width="855" Canvas.Left="530" Canvas.Top="337"  Visibility="Hidden">
                     <TextBlock Canvas.Left="150" Canvas.Top="57" Height="203" Name="textNote" Text="" Width="560" FontSize="30" FontFamily="./fzsejw.ttf#方正少儿简体" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Image Name="successImage" Source="Image/UIResources/FunctionButton/EmailPage/successMark.png" Stretch="Fill" Width="242" Canvas.Top="97" Canvas.Left="617"  Visibility="Hidden"/>
+                    <Image Name="failImage" Source="Image/UIResources/FunctionButton/EmailPage/failMark.png" Stretch="Fill" Width="242" Canvas.Top="97" Canvas.Left="617"  Visibility="Hidden"/>
                 </Canvas>
             </Canvas>
         </Grid>

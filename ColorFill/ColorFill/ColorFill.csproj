@@ -172,6 +172,9 @@
     <Content Include="Image\Audio\ButtonClick.wav" />
     <Content Include="Image\Audio\Click.wav" />
     <Content Include="Image\Audio\Done.wav" />
+    <Resource Include="Image\UIResources\FunctionButton\EmailPage\failMark.png" />
+    <Resource Include="Image\UIResources\FunctionButton\EmailPage\successMark.png" />
+    <Resource Include="Image\UIResources\FunctionButton\EmailPage\backButton.png" />
     <Resource Include="Image\Keyboard\TextLower.png" />
     <Resource Include="Image\Keyboard\notekey.png" />
     <Resource Include="Image\Keyboard\TextCapital.png" />

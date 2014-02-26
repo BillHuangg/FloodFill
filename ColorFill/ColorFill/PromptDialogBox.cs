@@ -24,7 +24,7 @@ namespace ColorFill
         EmailPage _pageUI;
         private Timer parentTimer;
         delegate void UpdateTimer();
-        private static int WAITTIME = 5;
+        private static int WAITTIME = 3;
         private int intervalTime = 1000;        //update time 1s
         private int remainingTime = WAITTIME;   // 30s
         private bool isStartingCountDown = true;
@@ -40,12 +40,33 @@ namespace ColorFill
         private void DisplayDialogBox()
         {
             _pageUI.DialogBoxLayer.Visibility = Visibility.Visible;
-            _pageUI.textNote.Text = promptMessage;
+
+            _pageUI.textAddress.Text = promptMessage;
+
+            ///全部隐藏
+            _pageUI.successImage.Visibility = Visibility.Hidden;
+            _pageUI.failImage.Visibility = Visibility.Hidden;
+
+            //
+            if (isSent)
+            {
+
+                _pageUI.successImage.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                _pageUI.failImage.Visibility = Visibility.Visible;
+            }
+            
         }
         private void HideDialogBox()
         {
             _pageUI.DialogBoxLayer.Visibility = Visibility.Hidden;
-            _pageUI.textNote.Text = "";
+            _pageUI.textAddress.Text = "请重新输入您的邮件地址";
+
+            ///全部隐藏
+            _pageUI.successImage.Visibility = Visibility.Hidden;
+            _pageUI.failImage.Visibility = Visibility.Hidden;
             
         }
         private void SetUpTimer()
@@ -81,7 +102,7 @@ namespace ColorFill
                 else
                 {
                     //stay at current page
-                    _pageUI.textAddress.Text = "请输入您的邮件地址";
+                    _pageUI.textAddress.Text = "请重新输入您的邮件地址";
                 }
             }
         }
